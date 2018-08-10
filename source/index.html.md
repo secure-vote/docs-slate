@@ -64,6 +64,10 @@ Deployed Date | Network | Name of SC | Address
 
 ## Namespaces (Production)
 
+Date | Namespace (bytes4) | BBFarmID | Network | Type | Address | Notes
+---|---|---|---|---|---|---
+2018-06-xx | 0x00000001 | 0 | Mainnet | BBFarm | 0xB105035C563Ed14C17f6BeaCe07F4659C823322a | .
+
 ## Namespaces (Testnet - TN1)
 
 Date | Namespace (bytes4) | BBFarmID | Network | Type | Address | Notes
