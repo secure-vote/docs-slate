@@ -1,30 +1,79 @@
 ---
-title: API Reference
+title: SecureVote Docs
 
-language_tabs: # must be one of https://git.io/vQNgJ
-  - shell
-  - ruby
-  - python
-  - javascript
+language_tabs: [] # must be one of https://git.io/vQNgJ
+  # - shell
+  # - ruby
+  # - python
+  # - javascript
 
 toc_footers:
-  - <a href='#'>Sign Up for a Developer Key</a>
-  - <a href='https://github.com/lord/slate'>Documentation Powered by Slate</a>
+  # - <a href='#'>Sign Up for a Developer Key</a>
+  # - <a href='https://github.com/lord/slate'>Documentation Powered by Slate</a>
+  - <a href="https://lib.docs.secure.vote">SV Lib docs</a>
+  - <a href="https://api.docs.secure.vote">SV Light API docs</a>
 
-includes:
-  - errors
+includes: []
+  # - errors
 
 search: true
 ---
 
 # Introduction
 
-Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.
+Welcome to the SecureVote docs. Here you'll find details on our smart contracts, links to other documentation, and more. (It's a work in progress atm.)
 
-We have language bindings in Shell, Ruby, Python, and JavaScript! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.
 
-This example API documentation page was created with [Slate](https://github.com/lord/slate). Feel free to edit it and use it as a base for your own API's documentation.
 
+
+
+
+
+# Smart Contracts
+
+## Libraries
+
+These are deployed to the same address across mainnet, kovan, ropsten, and classic.
+
+Deployed Date | Name | Address
+--- | --- | ---
+2018-08-10 | BBLibV7 | 0x1f8c387ebd02240A1BcB6b2864087464F719aDf6
+2018-06-xx | StringLib | 0x63Dbc2DA4FBA06Ea2Bdbba0551744c7595Cc8e2A
+2018-06-xx | Base32Lib | 0x45a337efe2adb2617a3a5272c6c84a89ef56afcf
+2018-06-xx | MemArrApp | 0xedd7ac11f2437de048882d4859ed30d871cc4324
+2018-06-xx | BBLib | 0x0484c599E228e13bEFB61129888e8bD2b63A9619
+
+## Production
+
+(list of production SCs go here)
+
+Deployed Date | Network | Name of SC | Address
+------------- | ---------- | ------- | -------
+2018-08-10 | Mainnet | td | todo
+
+## Testnet (TN1)
+
+Deployed Date | Network | Name of SC | Address
+------------- | ---------- | ------- | -------
+2018-08-10 | Ropsten | UnsafeEd25519SelfDelegation | 0x2cdb6b361ecc7a834ce8a3a78556e70c3e74660e
+2018-08-10 | Ropsten | RemoteBBFarm | 0xc3d10af066bde2357c92bc4af25fb5f42e73f1a4
+2018-08-10 | Kovan | RemoteBBFarmProxy | 0xd3141c94d3beddbe1d280822ecc633b7c6a32464
+2018-06-xx | Kovan | SVIndex | 0xcad76eE606FB794dD1DA2c7E3C8663F648ba431d
+
+# Ballot Box Farms
+
+## Namespaces (Production)
+
+## Namespaces (Testnet - TN1)
+
+Date | Namespace (bytes4) | BBFarmID | Network | Type | Address | Notes
+---|---|---|---|---|---|---
+2018-08-10 | 0x03030001 | 1 | Kovan | RemoteBBFarmProxy | 0xd3141c94d3beddbe1d280822ecc633b7c6a32464 | .
+2018-08-10 | 0x03030001 | 1 | Ropsten | RemoteBBFarm | 0xc3d10af066bde2357c92bc4af25fb5f42e73f1a4 | .
+2018-06-xx | 0x00000001 | 0 | Kovan | BBFarm | 0x8384AD2bd15A80c15ccE6B5830a9324442853899 | .
+
+
+<!--
 # Authentication
 
 > To authorize, use this code:
@@ -235,5 +284,4 @@ This endpoint deletes a specific kitten.
 
 Parameter | Description
 --------- | -----------
-ID | The ID of the kitten to delete
-
+ID | The ID of the kitten to delete -->
