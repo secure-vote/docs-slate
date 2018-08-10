@@ -47,9 +47,22 @@ Deployed Date | Name | Address
 
 (list of production SCs go here)
 
-Deployed Date | Network | Name of SC | Address
-------------- | ---------- | ------- | -------
-2018-08-10 | Mainnet | td | todo
+Deployed Date | Network | Name of SC | Address | Notes
+------------- | ---------- | ------- | ------- | ---
+2018-07-30 | Mainnet | BBFarmAux2 | 0x91f34190ffcd934115bb2bd04c29e89362989121 | aux contract to make some BBFarm calls nicer
+2018-07-xx | Mainnet | TokenAbbreviationLookup | 0x216265865e46D4c6FE506877EfAAE7dd7Ae2faCE | .
+2018-06-xx | Mainnet | EnsOwnerPx | 0xa00919a6c9e1c31be81d0203532bdb7724052b04 | index.tokenvote.eth owner px
+2018-06-xx | Mainnet | CommunityAuctionSimple | 0x5A0E6Ff846C237E5E8f5AFd388B488292E1c8627 | .
+2018-06-xx | Mainnet | BBFarm | 0xB105035C563Ed14C17f6BeaCe07F4659C823322a | .
+2018-06-xx | Mainnet | SVPayments | 0xB9C0291cbbb67CF5368F4FAc5EaE9d8bB98f67bA | .
+2018-06-xx | Mainnet | SVIndexBackend | 0x45250f268a3ef4adafc9275073d7fa126fb75101 | .
+2018-06-xx | Mainnet | SVIndex | 0x04B710D1FC77C8e7002F539bB48feB560CB2892C | .
+2018-03-06 | Mainnet | SVDelegationV0101 | 0x4dD28be042F85e287E9AaCe4147152bf1CD835e9 | deprecates SVDelegation contract
+2018-02-28 | Mainnet | SVDelegation | 0xd78d4beabfd3054390d10aeb4258dc2d867f5e17 | deprecated as doesn't allow reverse lookup easily
+2018-03-01 | Mainnet | SVLightIndex | 0xa8a8509A17a5872d01e489fC85B152eb2A0C092E | Early prototype of index, used for a few SWM ballots
+2018-03-01 | Mainnet | SwarmVotingMVP | 0x1e6b7d459AF96E916548D27B0e72ce17ccb7dB74 | .
+2018-03-01 | Mainnet | SwarmVotingMVP | 0x6B649662dA40F10361F008b481143029296a69D6 | Upgraded version, used for a few ballots
+2017-10-29 | Mainnet | SwarmVotingMVP | 0x2Bb10945E9f0C9483022dc473aB4951BC2a77d0f | Initial MVP contract for Swarm
 
 ## Testnet (TN1)
 
@@ -58,6 +71,7 @@ Deployed Date | Network | Name of SC | Address
 2018-08-10 | Ropsten | UnsafeEd25519SelfDelegation | 0x2cdb6b361ecc7a834ce8a3a78556e70c3e74660e
 2018-08-10 | Ropsten | RemoteBBFarm | 0xc3d10af066bde2357c92bc4af25fb5f42e73f1a4
 2018-08-10 | Kovan | RemoteBBFarmProxy | 0xd3141c94d3beddbe1d280822ecc633b7c6a32464
+2018-07-xx | KOvan | BBFarmAux2 | 0x8d9d49f602e1e95b8dca42af1766963c3e4f7565
 2018-06-xx | Kovan | SVIndex | 0xcad76eE606FB794dD1DA2c7E3C8663F648ba431d
 
 # Ballot Box Farms
