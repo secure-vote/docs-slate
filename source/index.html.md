@@ -32,13 +32,13 @@ This is the normal BBFarm. Exists on the same chain as the Index. Holds all ball
 Ballots are created by the index only, though the ballot owner has limited control, e.g. deprecating the ballot, publishing
 the secret key, and choosing a new owner.
 
-## RemoteBBFarm and RemoteBBFarmProxy
+## BBFarmRemote and BBFarmRemoteProxy
 
 This pair of BBFarms share the actions of a normal BBFarm.
 
-RemoteBBFarmProxy holds the metadata about the ballot (specHash, start/end times, etc). It will revert or give you obvious garbage for things that are unsupported. (Obvious garbage being the number of votes from `getDetails`.) Additionally any ballot modification methods should be called here.
+BBFarmRemoteProxy holds the metadata about the ballot (specHash, start/end times, etc). It will revert or give you obvious garbage for things that are unsupported. (Obvious garbage being the number of votes from `getDetails`.) Additionally any ballot modification methods should be called here.
 
-RemoteBBFarm holds the votes and is instantiated on a foreign network. It does not know about which ballots are valid and which are not,
+BBFarmRemote holds the votes and is instantiated on a foreign network. It does not know about which ballots are valid and which are not,
 and so when scraping votes later you must use the `getVoteAndTime` method, not `getVote`. The reason is you must validate the timestamp of votes
 to ensure they were all cast in the allowed window. Essentially it is just a container for votes. `getDetails` works as expected here.
 
@@ -56,15 +56,15 @@ Networks used are:
 
 We maintain `eth-stats` instances for each group of nodes:
 
-* https://stats.eth.secure.vote (mainnet)
-* https://stats.poa.eth.secure.vote
-* https://stats.classic.eth.secure.vote
-* https://stats.kovan.eth.secure.vote
-* https://stats.ropsten.eth.secure.vote
+* [stats.eth.secure.vote](https://stats.eth.secure.vote) (mainnet / foundation)
+* [stats.poa.eth.secure.vote](https://stats.poa.eth.secure.vote)
+* [stats.classic.eth.secure.vote](https://stats.classic.eth.secure.vote)
+* [stats.kovan.eth.secure.vote](https://stats.kovan.eth.secure.vote)
+* [stats.ropsten.eth.secure.vote](https://stats.ropsten.eth.secure.vote)
 
 ## Explorer (PoA)
 
-We have an instance of Etherchain Light running at https://explorer.poa.eth.secure.vote for exploring that chain.
+We have an instance of Etherchain Light running at [explorer.poa.eth.secure.vote](https://explorer.poa.eth.secure.vote) for exploring that chain.
 
 # Smart Contracts
 
@@ -107,8 +107,8 @@ Deployed Date | Network | Name of SC | Address | Notes
 Deployed Date | Network | Name of SC | Address
 ------------- | ---------- | ------- | -------
 2018-08-10 | Ropsten | UnsafeEd25519SelfDelegation | 0x2cdb6b361ecc7a834ce8a3a78556e70c3e74660e
-2018-08-10 | Ropsten | RemoteBBFarm | 0xc3d10af066bde2357c92bc4af25fb5f42e73f1a4
-2018-08-10 | Kovan | RemoteBBFarmProxy | 0xd3141c94d3beddbe1d280822ecc633b7c6a32464
+2018-08-10 | Ropsten | BBFarmRemote | 0xc3d10af066bde2357c92bc4af25fb5f42e73f1a4
+2018-08-10 | Kovan | BBFarmRemoteProxy | 0xd3141c94d3beddbe1d280822ecc633b7c6a32464
 2018-07-xx | Kovan | BBFarmAux2 | 0x8d9d49f602e1e95b8dca42af1766963c3e4f7565
 2018-06-xx | Kovan | SVIndex | 0xcad76eE606FB794dD1DA2c7E3C8663F648ba431d
 
@@ -126,8 +126,8 @@ Date | Namespace (bytes4) | BBFarmID | Network | Type | Address | Notes
 
 Date | Namespace (bytes4) | BBFarmID | Network | Type | Address | Notes
 ---|---|---|---|---|---|---
-2018-08-10 | 0x03030001 | 1 | Kovan | RemoteBBFarmProxy | 0xd3141c94d3beddbe1d280822ecc633b7c6a32464 | .
-2018-08-10 | 0x03030001 | 1 | Ropsten | RemoteBBFarm | 0xc3d10af066bde2357c92bc4af25fb5f42e73f1a4 | .
+2018-08-10 | 0x03030001 | 1 | Kovan | BBFarmRemoteProxy | 0xd3141c94d3beddbe1d280822ecc633b7c6a32464 | .
+2018-08-10 | 0x03030001 | 1 | Ropsten | BBFarmRemote | 0xc3d10af066bde2357c92bc4af25fb5f42e73f1a4 | .
 2018-06-xx | 0x00000001 | 0 | Kovan | BBFarm | 0x8384AD2bd15A80c15ccE6B5830a9324442853899 | .
 
 
