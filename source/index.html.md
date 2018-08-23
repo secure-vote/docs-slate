@@ -42,9 +42,7 @@ RemoteBBFarm holds the votes and is instantiated on a foreign network. It does n
 and so when scraping votes later you must use the `getVoteAndTime` method, not `getVote`. The reason is you must validate the timestamp of votes
 to ensure they were all cast in the allowed window. Essentially it is just a container for votes. `getDetails` works as expected here.
 
-# Smart Contracts
-
-## Networks
+# Ethereum Networks
 
 Networks used are:
 
@@ -53,6 +51,22 @@ Networks used are:
 * Classic
 * Kovan
 * Ropsten
+
+## Stats
+
+We maintain `eth-stats` instances for each group of nodes:
+
+* https://stats.eth.secure.vote (mainnet)
+* https://stats.poa.eth.secure.vote
+* https://stats.classic.eth.secure.vote
+* https://stats.kovan.eth.secure.vote
+* https://stats.ropsten.eth.secure.vote
+
+## Explorer (PoA)
+
+We have an instance of Etherchain Light running at https://explorer.poa.eth.secure.vote for exploring that chain.
+
+# Smart Contracts
 
 ## Libraries
 
@@ -72,6 +86,7 @@ Deployed Date | Name | Address
 
 Deployed Date | Network | Name of SC | Address | Notes
 ------------- | ---------- | ------- | ------- | ---
+2018-08-22 | SV PoA | BBFarmRemote | 0xebccfb6af3e030ca73e5f00f2cc77ef2a60a1887 | .
 2018-07-30 | Mainnet | BBFarmAux2 | 0x91f34190ffcd934115bb2bd04c29e89362989121 | aux contract to make some BBFarm calls nicer
 2018-07-xx | Mainnet | TokenAbbreviationLookup | 0x216265865e46D4c6FE506877EfAAE7dd7Ae2faCE | .
 2018-06-xx | Mainnet | EnsOwnerPx | 0xa00919a6c9e1c31be81d0203532bdb7724052b04 | index.tokenvote.eth owner px
@@ -94,7 +109,7 @@ Deployed Date | Network | Name of SC | Address
 2018-08-10 | Ropsten | UnsafeEd25519SelfDelegation | 0x2cdb6b361ecc7a834ce8a3a78556e70c3e74660e
 2018-08-10 | Ropsten | RemoteBBFarm | 0xc3d10af066bde2357c92bc4af25fb5f42e73f1a4
 2018-08-10 | Kovan | RemoteBBFarmProxy | 0xd3141c94d3beddbe1d280822ecc633b7c6a32464
-2018-07-xx | KOvan | BBFarmAux2 | 0x8d9d49f602e1e95b8dca42af1766963c3e4f7565
+2018-07-xx | Kovan | BBFarmAux2 | 0x8d9d49f602e1e95b8dca42af1766963c3e4f7565
 2018-06-xx | Kovan | SVIndex | 0xcad76eE606FB794dD1DA2c7E3C8663F648ba431d
 
 # Ballot Box Farms
