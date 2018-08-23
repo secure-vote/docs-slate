@@ -8,8 +8,6 @@ language_tabs: [] # must be one of https://git.io/vQNgJ
   # - javascript
 
 toc_footers:
-  # - <a href='#'>Sign Up for a Developer Key</a>
-  # - <a href='https://github.com/lord/slate'>Documentation Powered by Slate</a>
   - <a href="https://lib.docs.secure.vote">SV Lib docs</a>
   - <a href="https://api.docs.secure.vote">SV Light API docs</a>
 
@@ -25,15 +23,40 @@ Welcome to the SecureVote docs. Here you'll find details on our smart contracts,
 
 
 
+# Component Overviews / Operation
 
 
+## BBFarm
 
+This is the normal BBFarm. Exists on the same chain as the Index. Holds all ballots using std voting as of Aug 2018.
+Ballots are created by the index only, though the ballot owner has limited control, e.g. deprecating the ballot, publishing
+the secret key, and choosing a new owner.
+
+## RemoteBBFarm and RemoteBBFarmProxy
+
+This pair of BBFarms share the actions of a normal BBFarm.
+
+RemoteBBFarmProxy holds the metadata about the ballot (specHash, start/end times, etc). It will revert or give you obvious garbage for things that are unsupported. (Obvious garbage being the number of votes from `getDetails`.) Additionally any ballot modification methods should be called here.
+
+RemoteBBFarm holds the votes and is instantiated on a foreign network. It does not know about which ballots are valid and which are not,
+and so when scraping votes later you must use the `getVoteAndTime` method, not `getVote`. The reason is you must validate the timestamp of votes
+to ensure they were all cast in the allowed window. Essentially it is just a container for votes. `getDetails` works as expected here.
 
 # Smart Contracts
 
+## Networks
+
+Networks used are:
+
+* Mainnet (Ethereum Foundation)
+* SecureVote PoA Network (Network ID 0xF0, [parity chain spec](https://github.com/secure-vote/sv-parity-setup/blob/master/sv-poa-spec.json))
+* Classic
+* Kovan
+* Ropsten
+
 ## Libraries
 
-These are deployed to the same address across mainnet, kovan, ropsten, and classic.
+These are deployed to the same address across mainnet, SV PoA, kovan, ropsten, and classic.
 
 Deployed Date | Name | Address
 --- | --- | ---
@@ -81,6 +104,8 @@ Deployed Date | Network | Name of SC | Address
 Date | Namespace (bytes4) | BBFarmID | Network | Type | Address | Notes
 ---|---|---|---|---|---|---
 2018-06-xx | 0x00000001 | 0 | Mainnet | BBFarm | 0xB105035C563Ed14C17f6BeaCe07F4659C823322a | .
+2018-08-23 | 0xF0F00001 | 1 | SV PoA | BBFarmRemote | 0xebccfb6af3e030ca73e5f00f2cc77ef2a60a1887 | .
+2018-08-24 | 0xF0F00001 | 1 | Mainnet | BBFarmRemoteProxy | .. | .
 
 ## Namespaces (Testnet - TN1)
 
