@@ -225,7 +225,7 @@
                     <a href="#bbfarm" class="toc-h2 toc-link" data-title="BBFarm">BBFarm</a>
                   </li>
                   <li>
-                    <a href="#remotebbfarm-and-remotebbfarmproxy" class="toc-h2 toc-link" data-title="RemoteBBFarm and RemoteBBFarmProxy">RemoteBBFarm and RemoteBBFarmProxy</a>
+                    <a href="#bbfarmremote-and-bbfarmremoteproxy" class="toc-h2 toc-link" data-title="BBFarmRemote and BBFarmRemoteProxy">BBFarmRemote and BBFarmRemoteProxy</a>
                   </li>
               </ul>
           </li>
@@ -280,12 +280,12 @@
 <p>This is the normal BBFarm. Exists on the same chain as the Index. Holds all ballots using std voting as of Aug 2018.
 Ballots are created by the index only, though the ballot owner has limited control, e.g. deprecating the ballot, publishing
 the secret key, and choosing a new owner.</p>
-<h2 id='remotebbfarm-and-remotebbfarmproxy'>RemoteBBFarm and RemoteBBFarmProxy</h2>
+<h2 id='bbfarmremote-and-bbfarmremoteproxy'>BBFarmRemote and BBFarmRemoteProxy</h2>
 <p>This pair of BBFarms share the actions of a normal BBFarm.</p>
 
-<p>RemoteBBFarmProxy holds the metadata about the ballot (specHash, start/end times, etc). It will revert or give you obvious garbage for things that are unsupported. (Obvious garbage being the number of votes from <code>getDetails</code>.) Additionally any ballot modification methods should be called here.</p>
+<p>BBFarmRemoteProxy holds the metadata about the ballot (specHash, start/end times, etc). It will revert or give you obvious garbage for things that are unsupported. (Obvious garbage being the number of votes from <code>getDetails</code>.) Additionally any ballot modification methods should be called here.</p>
 
-<p>RemoteBBFarm holds the votes and is instantiated on a foreign network. It does not know about which ballots are valid and which are not,
+<p>BBFarmRemote holds the votes and is instantiated on a foreign network. It does not know about which ballots are valid and which are not,
 and so when scraping votes later you must use the <code>getVoteAndTime</code> method, not <code>getVote</code>. The reason is you must validate the timestamp of votes
 to ensure they were all cast in the allowed window. Essentially it is just a container for votes. <code>getDetails</code> works as expected here.</p>
 <h1 id='ethereum-networks'>Ethereum Networks</h1>
@@ -482,13 +482,13 @@ to ensure they were all cast in the allowed window. Essentially it is just a con
 <tr>
 <td>2018-08-10</td>
 <td>Ropsten</td>
-<td>RemoteBBFarm</td>
+<td>BBFarmRemote</td>
 <td>0xc3d10af066bde2357c92bc4af25fb5f42e73f1a4</td>
 </tr>
 <tr>
 <td>2018-08-10</td>
 <td>Kovan</td>
-<td>RemoteBBFarmProxy</td>
+<td>BBFarmRemoteProxy</td>
 <td>0xd3141c94d3beddbe1d280822ecc633b7c6a32464</td>
 </tr>
 <tr>
@@ -561,7 +561,7 @@ to ensure they were all cast in the allowed window. Essentially it is just a con
 <td>0x03030001</td>
 <td>1</td>
 <td>Kovan</td>
-<td>RemoteBBFarmProxy</td>
+<td>BBFarmRemoteProxy</td>
 <td>0xd3141c94d3beddbe1d280822ecc633b7c6a32464</td>
 <td>.</td>
 </tr>
@@ -570,7 +570,7 @@ to ensure they were all cast in the allowed window. Essentially it is just a con
 <td>0x03030001</td>
 <td>1</td>
 <td>Ropsten</td>
-<td>RemoteBBFarm</td>
+<td>BBFarmRemote</td>
 <td>0xc3d10af066bde2357c92bc4af25fb5f42e73f1a4</td>
 <td>.</td>
 </tr>
