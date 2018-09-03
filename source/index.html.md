@@ -32,13 +32,13 @@ This is the normal BBFarm. Exists on the same chain as the Index. Holds all ball
 Ballots are created by the index only, though the ballot owner has limited control, e.g. deprecating the ballot, publishing
 the secret key, and choosing a new owner.
 
-## BBFarmRemote and BBFarmRemoteProxy
+## RemoteBBFarm and RemoteBBFarmProxy
 
 This pair of BBFarms share the actions of a normal BBFarm.
 
-BBFarmRemoteProxy holds the metadata about the ballot (specHash, start/end times, etc). It will revert or give you obvious garbage for things that are unsupported. (Obvious garbage being the number of votes from `getDetails`.) Additionally any ballot modification methods should be called here.
+RemoteBBFarmProxy holds the metadata about the ballot (specHash, start/end times, etc). It will revert or give you obvious garbage for things that are unsupported. (Obvious garbage being the number of votes from `getDetails`.) Additionally any ballot modification methods should be called here.
 
-BBFarmRemote holds the votes and is instantiated on a foreign network. It does not know about which ballots are valid and which are not,
+RemoteBBFarm holds the votes and is instantiated on a foreign network. It does not know about which ballots are valid and which are not,
 and so when scraping votes later you must use the `getVoteAndTime` method, not `getVote`. The reason is you must validate the timestamp of votes
 to ensure they were all cast in the allowed window. Essentially it is just a container for votes. `getDetails` works as expected here.
 
@@ -86,7 +86,7 @@ Deployed Date | Name | Address
 
 Deployed Date | Network | Name of SC | Address | Notes
 ------------- | ---------- | ------- | ------- | ---
-2018-08-22 | SV PoA | BBFarmRemote | 0xebccfb6af3e030ca73e5f00f2cc77ef2a60a1887 | .
+2018-08-22 | SV PoA | RemoteBBFarm | 0xebccfb6af3e030ca73e5f00f2cc77ef2a60a1887 | .
 2018-07-30 | Mainnet | BBFarmAux2 | 0x91f34190ffcd934115bb2bd04c29e89362989121 | aux contract to make some BBFarm calls nicer
 2018-07-xx | Mainnet | TokenAbbreviationLookup | 0x216265865e46D4c6FE506877EfAAE7dd7Ae2faCE | .
 2018-06-xx | Mainnet | EnsOwnerPx | 0xa00919a6c9e1c31be81d0203532bdb7724052b04 | index.tokenvote.eth owner px
@@ -107,8 +107,8 @@ Deployed Date | Network | Name of SC | Address | Notes
 Deployed Date | Network | Name of SC | Address
 ------------- | ---------- | ------- | -------
 2018-08-10 | Ropsten | UnsafeEd25519SelfDelegation | 0x2cdb6b361ecc7a834ce8a3a78556e70c3e74660e
-2018-08-10 | Ropsten | BBFarmRemote | 0xc3d10af066bde2357c92bc4af25fb5f42e73f1a4
-2018-08-10 | Kovan | BBFarmRemoteProxy | 0xd3141c94d3beddbe1d280822ecc633b7c6a32464
+2018-08-10 | Ropsten | RemoteBBFarm | 0xc3d10af066bde2357c92bc4af25fb5f42e73f1a4
+2018-08-10 | Kovan | RemoteBBFarmProxy | 0xd3141c94d3beddbe1d280822ecc633b7c6a32464
 2018-07-xx | Kovan | BBFarmAux2 | 0x8d9d49f602e1e95b8dca42af1766963c3e4f7565
 2018-06-xx | Kovan | SVIndex | 0xcad76eE606FB794dD1DA2c7E3C8663F648ba431d
 
@@ -119,15 +119,15 @@ Deployed Date | Network | Name of SC | Address
 Date | Namespace (bytes4) | BBFarmID | Network | Type | Address | Notes
 ---|---|---|---|---|---|---
 2018-06-xx | 0x00000001 | 0 | Mainnet | BBFarm | 0xB105035C563Ed14C17f6BeaCe07F4659C823322a | .
-2018-08-23 | 0xF0F00001 | 1 | SV PoA | BBFarmRemote | 0xebccfb6af3e030ca73e5f00f2cc77ef2a60a1887 | .
-2018-08-24 | 0xF0F00001 | 1 | Mainnet | BBFarmRemoteProxy | .. | .
+2018-08-23 | 0xF0F00001 | 1 | SV PoA | RemoteBBFarm | 0xebccfb6af3e030ca73e5f00f2cc77ef2a60a1887 | .
+2018-08-24 | 0xF0F00001 | 1 | Mainnet | RemoteBBFarmProxy | .. | .
 
 ## Namespaces (Testnet - TN1)
 
 Date | Namespace (bytes4) | BBFarmID | Network | Type | Address | Notes
 ---|---|---|---|---|---|---
-2018-08-10 | 0x03030001 | 1 | Kovan | BBFarmRemoteProxy | 0xd3141c94d3beddbe1d280822ecc633b7c6a32464 | .
-2018-08-10 | 0x03030001 | 1 | Ropsten | BBFarmRemote | 0xc3d10af066bde2357c92bc4af25fb5f42e73f1a4 | .
+2018-08-10 | 0x03030001 | 1 | Kovan | RemoteBBFarmProxy | 0xd3141c94d3beddbe1d280822ecc633b7c6a32464 | .
+2018-08-10 | 0x03030001 | 1 | Ropsten | RemoteBBFarm | 0xc3d10af066bde2357c92bc4af25fb5f42e73f1a4 | .
 2018-06-xx | 0x00000001 | 0 | Kovan | BBFarm | 0x8384AD2bd15A80c15ccE6B5830a9324442853899 | .
 
 
